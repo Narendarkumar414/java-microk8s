@@ -47,7 +47,7 @@ pipeline {
         stage('build docker image and pushing to dockerhub') {
             steps {
                 script {
-                    sh "sudo cd DOCKER; docker build -t narendar414/devops-flow:v_${BUILD_NUMBER} ."
+                    sh "cd DOCKER; sudo docker build -t narendar414/devops-flow:v_${BUILD_NUMBER} ."
                     sh "sudo docker push narendar414/devops-flow:v_${BUILD_NUMBER}"
                 }
             }
