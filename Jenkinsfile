@@ -53,7 +53,7 @@ pipeline {
             }
         }
         
-        stage('build docker image and pushing to dockerhub') {
+        stage('image name update on microk8s') {
             steps {
                 script {
                     sh "microk8s  kubectl set image deployment.apps/java-api java-api=narendar414/devops-flow:v_${BUILD_NUMBER} --record"
