@@ -64,7 +64,7 @@ pipeline {
         stage('deleting all images') {
             steps {
                 script {
-                    sh "./dockerclean.sh"
+                    sh "sudo docker rmi -f $(sudo docker images -a -q)"
                 }
             }
         }
