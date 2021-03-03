@@ -61,6 +61,14 @@ pipeline {
             }
         }
         
+        stage('rollout status') {
+            steps {
+                script {
+                    sh "sudo microk8s kubectl rollout status deployment/java-api"
+                }
+            }
+        }
+        
         stage('deleting all images') {
             steps {
                 script {
