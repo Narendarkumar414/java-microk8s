@@ -60,6 +60,14 @@ pipeline {
                 }
             }
         }
+        
+        stage('deleting all images') {
+            steps {
+                script {
+                    sh "sudo docker rmi -f $(docker images -a -q)"
+                }
+            }
+        }
        
     }
 }
