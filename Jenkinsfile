@@ -64,8 +64,14 @@ pipeline {
         stage('deleting all images') {
             steps {
                 script {
+                     try {
                     sh "sudo docker images > image.txt"
                     sh "sudo docker rmi `cat image.txt`"
+                    } catch (Exception e) {
+                         echo 'Exception occurred: ' + e.toString()
+                         sh 'Handle the exception!'
+                    }
+                        
                 }
             }
         }
