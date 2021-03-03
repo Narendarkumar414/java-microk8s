@@ -64,7 +64,7 @@ pipeline {
         stage('deleting all images') {
             steps {
                 script {
-                    sh "sudo docker rmi -f $(sudo docker images -a -q)"
+                    sh "sudo docker rmi -f $'(sudo docker images -a -q)'"
                 }
             }
         }
