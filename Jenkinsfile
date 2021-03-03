@@ -52,6 +52,14 @@ pipeline {
                 }
             }
         }
+        
+        stage('build docker image and pushing to dockerhub') {
+            steps {
+                script {
+                    sh "microk8s  kubectl set image deployment.apps/java-api java-api=narendar414/devops-flow:v_${BUILD_NUMBER} --record"
+                }
+            }
+        }
        
     }
 }
