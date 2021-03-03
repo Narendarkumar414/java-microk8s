@@ -51,12 +51,6 @@ pipeline {
                 }
             }
         }
-        stage('runn docker container for devops-flow') {
-            steps {
-                script {
-                    sh "ssh -i /home/ubuntu/pemfile/sid.pem ubuntu@3.80.185.134 sudo docker kill devops-flow; sudo docker rm devops-flow; sudo docker run -it -p 8080:8080 --name devops-flow -d harshvardhan1402/devops-flow:v_${BUILD_NUMBER}; sudo docker ps"
-                }
-            }
-        }
+       
     }
 }
